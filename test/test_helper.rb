@@ -7,4 +7,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def authenticate_as(user = users(:john))
+    session[:user_id] = user.id
+  end
+  alias_method :authenticate, :authenticate_as
 end

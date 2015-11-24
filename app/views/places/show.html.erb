@@ -1,0 +1,5 @@
+<div class="ok_not">
+  <%= button_to "✓", [:ok, @place], method: :patch, class: "ok" %>
+  <%= button_to "✗", [:not, @place], method: :patch, class: "not" %>
+</div>
+<iframe src="<%= @place.url %>" frameborder="0" class="place"></iframe>

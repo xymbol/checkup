@@ -1,2 +1,8 @@
 one:
-  url: http://example.com/
+  url: http://www.resultados.gob.ar/bltgetelegr/01/001/0001/010010001_0001.htm
+
+two:
+  url: http://www.resultados.gob.ar/bltgetelegr/01/001/0001/010010001_0002.htm
+
+three:
+  url: http://www.resultados.gob.ar/bltgetelegr/01/001/0001/010010001_0003.htm

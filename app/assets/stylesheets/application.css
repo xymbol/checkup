@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  position: relative;
+  background-color: lightblue;
+}
+nav ul {
+  padding-left: 1em;
+  list-style: none;
+}
+div.ok_not {
+  position: absolute;
+  top: 0;
+  right: 1em;
+}
+form.button_to {
+  display: inline;
+}
+form.button_to input[type=submit] {
+  width: 4em;
+  background-color: darkgreen;
+  font-size: 1.6em;
+  color: white;
+}
+form.button_to input[type=submit].not {
+  background-color: darkred;
+}
+iframe.place {
+  width: 100%;
+  height: 800px;
+  background-color: lightgray;
+}

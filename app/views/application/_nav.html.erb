@@ -1,10 +1,10 @@
 <nav>
   <ul>
     <% unless current_user %>
-      <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>
+      <li><%= link_to "Entrar con Twitter", "/auth/twitter" %></li>
     <% else %>
-      <li>You're logged in as <%= current_user.nickname %>.</li>
-      <li><%= link_to "Sign out", signout_url %></li>
+      <li>Estás registrado como <%= current_user.display_name %>.</li>
+      <li><%= link_to "Salir", signout_url %></li>
     <% end %>
   </ul>
 </nav>

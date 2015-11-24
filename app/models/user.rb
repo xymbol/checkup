@@ -1,15 +1,18 @@
 class User < ActiveRecord::Base
-  def self.from_omniauth(auth)
-    where(provider: auth["provider"], uid: auth["uid"]).first || create_from_omniauth(auth)
-  end
+  has_many :checks
 
-  def self.create_from_omniauth(auth)
-    create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
+  validates_presence_of :provider, :uid, :nickname
+  validates_uniqueness_of :provider, scope: :uid
+
+  def self.from_omniauth(auth)
+    where(provider: auth["provider"], uid: auth["uid"]).first_or_create do |user|
       user.nickname = auth["info"]["nickname"]
       user.name = auth["info"]["name"]
     end
+  end
+
+  def display_name
+    '@' + nickname.downcase
   end
 
   def to_auth
