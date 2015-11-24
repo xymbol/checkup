@@ -1,1 +1,5 @@
-one: {}
+john:
+  provider: twitter
+  uid: 123
+  nickname: john
+  name: John Doe

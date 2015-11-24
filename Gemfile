@@ -45,3 +45,5 @@ group :development do
   gem 'spring'
 end
 
+gem 'dotenv-rails', group: %i(development test)
+gem 'omniauth-twitter'
