@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     '@' + nickname.downcase
   end
 
+  def twitter_url
+    'https://twitter.com/%s' % nickname
+  end
+
   def to_auth
     auth = attributes.slice("provider", "uid")
     auth["info"] = attributes.slice("nickname", "name")

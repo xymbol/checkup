@@ -1,10 +1,11 @@
 <nav>
-  <ul>
-    <% unless current_user %>
-      <li><%= link_to "Entrar con Twitter", "/auth/twitter" %></li>
-    <% else %>
-      <li>Estás registrado como <%= current_user.display_name %>.</li>
-      <li><%= link_to "Salir", signout_url %></li>
-    <% end %>
-  </ul>
+  <% unless current_user %>
+    <p><%= link_to "Entrar con Twitter", "/auth/twitter" %></p>
+  <% else %>
+    <p>
+      Ingresaste como <%= link_to current_user.display_name, current_user.twitter_url %>,
+      hacé <%= link_to "clic para salir", signout_url %>.
+    </p>
+    <p>Registraste <%= current_user.checks.count %> chequeos.</p>
+  <% end %>
 </nav>

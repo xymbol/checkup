@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :authorize, only: %i(create failure)
+
   def create
     user = User.from_omniauth env["omniauth.auth"]
     reset_session

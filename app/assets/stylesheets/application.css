@@ -16,21 +16,21 @@
 
 body {
   position: relative;
+  padding: 0 1em;
   background-color: lightblue;
 }
-nav ul {
-  padding-left: 1em;
-  list-style: none;
+nav form.button_to {
+  display: inline;
 }
-div.ok_not {
+.ok_not {
   position: absolute;
   top: 0;
   right: 1em;
 }
-form.button_to {
+.ok_not form.button_to {
   display: inline;
 }
-form.button_to input[type=submit] {
+.ok_not form.button_to input[type=submit] {
   width: 4em;
   background-color: darkgreen;
   font-size: 1.6em;
