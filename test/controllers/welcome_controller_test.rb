@@ -6,6 +6,12 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "redirects with https" do
+    request.env["HTTPS"] = "on"
+    get :index
+    assert_response :redirect
+  end
+
   test "redirects when signed in" do
     authenticate
     get :index

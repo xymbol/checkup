@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :force_http
   before_action :authorize
 
   private
@@ -17,6 +18,12 @@ class ApplicationController < ActionController::Base
   def authorize
     unless current_user
       redirect_to root_url, alert: "Not Authorized"
+    end
+  end
+
+  def force_http
+    if request.ssl?
+      redirect_to protocol: 'http://', status: 301
     end
   end
 end
