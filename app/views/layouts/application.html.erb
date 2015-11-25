@@ -7,9 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= render "nav" %>
-<%= yield %>
-
+  <%= render "tracking" unless Rails.env.development? %>
+  <%= render "nav" %>
+  <%= yield %>
 </body>
 </html>
