@@ -15,6 +15,6 @@ class PlacesController < ApplicationController
   private
 
   def find_place
-    @place = Place.find params[:id]
+    @place = Place.find_by! code: params[:id]
   end
 end

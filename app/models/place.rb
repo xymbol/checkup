@@ -2,12 +2,23 @@ class Place < ActiveRecord::Base
   has_many :checks
 
   validates_presence_of :url
+  validates_uniqueness_of :url, :code
 
-  def self.random_id
-    ids.sample
+  before_create :set_code
+
+  def set_code
+    self.code = SecureRandom.hex
   end
 
-  def self.ids
-    @ids ||= pluck(:id)
+  def to_param
+    code
+  end
+
+  def self.random_code
+    codes.sample
+  end
+
+  def self.codes
+    @codes ||= pluck(:code)
   end
 end
