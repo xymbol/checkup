@@ -143,6 +143,15 @@ es-AR:
       create: Crear %{model}
       submit: Guardar %{model}
       update: Actualizar %{model}
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No se encontró ningún registro"
+          one: "Mostrando un registro"
+          other: "Mostrando %{count} registros"
+      more_pages:
+        display_entries: "Mostrando %{first}–%{last} de %{total} registros"
+
   number:
     currency:
       format:
@@ -202,3 +211,12 @@ es-AR:
       long: "%A, %d de %B de %Y a las %I:%M %p"
       short: "%d de %b a las %H:%M hrs"
     pm: pm
+
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próxima &rsaquo;"
+      truncate: "&hellip;"
+      helpers:

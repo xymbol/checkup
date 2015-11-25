@@ -19,4 +19,16 @@ class PlaceTest < ActiveSupport::TestCase
   test "returns checked places" do
     assert_equal 2, Place.checked.count
   end
+
+  test "returns title" do
+    assert_equal "010010001_0001", places(:one).title
+  end
+
+  test "returns was checked" do
+    assert places(:one).checked?
+  end
+
+  test "returns was not checked" do
+    refute places(:three).checked?
+  end
 end

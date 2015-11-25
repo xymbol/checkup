@@ -1,0 +1,11 @@
+<h3>
+  <%= page_entries_info @places %>
+</h3>
+<ul>
+  <% @places.each do |place| %>
+    <li>
+      <%= link_to place.title, place %>
+    </li>
+  <% end %>
+</ul>
+<%= paginate @places %>

@@ -1,3 +1,6 @@
+require "securerandom"
+require "uri"
+
 class Place < ActiveRecord::Base
   has_many :checks
 
@@ -10,19 +13,31 @@ class Place < ActiveRecord::Base
     joins(:checks).distinct
   end
 
-  def set_code
-    self.code = SecureRandom.hex
-  end
-
-  def to_param
-    code
-  end
-
   def self.random_code
     codes.sample
   end
 
   def self.codes
     @codes ||= pluck(:code)
+  end
+
+  alias_attribute :to_param, :code
+
+  def title
+    File.basename(path, File.extname(path))
+  end
+
+  def path
+    URI.parse(url).path
+  end
+
+  def checked?
+    checks.any?
+  end
+
+  private
+
+  def set_code
+    self.code = SecureRandom.hex
   end
 end

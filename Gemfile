@@ -48,6 +48,7 @@ group :development do
 end
 
 gem 'dotenv-rails', group: %i(development test)
+gem 'kaminari'
 gem 'omniauth-twitter'
 gem 'puma'
 gem 'rails_12factor', group: :production

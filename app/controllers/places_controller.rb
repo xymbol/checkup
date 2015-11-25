@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :find_place
+  before_action :find_place, only: %i(show ok not)
 
   def show
   end
@@ -11,6 +11,15 @@ class PlacesController < ApplicationController
     redirect_to root_url
   end
   alias_method :not, :ok
+
+  def index
+    @places = Place.page params[:page]
+  end
+
+  def checked
+    @places = Place.checked.page params[:page]
+    render "index"
+  end
 
   private
 
