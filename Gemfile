@@ -49,4 +49,5 @@ end
 
 gem 'dotenv-rails', group: %i(development test)
 gem 'omniauth-twitter'
+gem 'puma'
 gem 'rails_12factor', group: :production
