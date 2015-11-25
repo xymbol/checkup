@@ -7,4 +7,8 @@ class Check < ActiveRecord::Base
   validates_presence_of :value
   validates_inclusion_of :value, in: %w(ok not)
   validates_uniqueness_of :place_id, scope: :user_id
+
+  %w(ok not).each do |value|
+    scope value, -> { where value: value }
+  end
 end

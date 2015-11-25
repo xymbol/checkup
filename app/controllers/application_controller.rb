@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def counter
+    @counter ||= Counter.recent.first_or_initialize
+  end
+  helper_method :counter
+
   def authorize
     unless current_user
       redirect_to root_url, alert: "Not Authorized"

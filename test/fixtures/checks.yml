@@ -2,3 +2,13 @@ ok:
   user: john
   place: one
   value: ok
+
+not:
+  user: john
+  place: two
+  value: not
+
+other:
+  user: jane
+  place: one
+  value: ok

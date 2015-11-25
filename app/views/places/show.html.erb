@@ -1,5 +1,12 @@
-<div class="ok_not">
-  <%= button_to "✓", [:ok, @place], method: :patch, class: "ok" %>
-  <%= button_to "✗", [:not, @place], method: :patch, class: "not" %>
+<div class="module">
+  <div class="check">
+    <%= button_to "✓", [:ok, @place], method: :patch, class: "ok" %>
+    <%= button_to "✗", [:not, @place], method: :patch, class: "not" %>
+  </div>
+  <ul class="counter">
+    <li><%= data_tag progress_as_percentage %></li>
+    <li>Chequeadas <%= data_tag number_with_delimiter(counter.checks) %> de <%= data_tag number_with_delimiter(counter.places) %> mesas</li>
+    <li>En total <%= data_tag number_with_delimiter(counter.ok_checks) %> buenos y <%= data_tag number_with_delimiter(counter.not_checks) %> malos</li>
+  </ul>
 </div>
 <iframe src="<%= @place.url %>" frameborder="0" class="place"></iframe>

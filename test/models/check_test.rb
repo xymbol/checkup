@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CheckTest < ActiveSupport::TestCase
-  test "fixture is valid" do
-    assert checks(:ok).valid?
+  %i(ok not other).each do |name|
+    test "fixture #{name} is valid" do
+      assert checks(name).valid?
+    end
   end
 end

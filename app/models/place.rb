@@ -6,6 +6,10 @@ class Place < ActiveRecord::Base
 
   before_create :set_code
 
+  def self.checked
+    joins(:checks).distinct
+  end
+
   def set_code
     self.code = SecureRandom.hex
   end

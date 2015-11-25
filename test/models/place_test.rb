@@ -15,4 +15,8 @@ class PlaceTest < ActiveSupport::TestCase
     other = Place.create url: "http://example.com/"
     assert_match /\h{32}/, other.code
   end
+
+  test "returns checked places" do
+    assert_equal 2, Place.checked.count
+  end
 end
