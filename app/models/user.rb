@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def display_name
-    '@' + nickname.downcase
+    '@' + nickname
   end
 
   def twitter_url
