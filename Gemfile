@@ -1,3 +1,5 @@
+ruby '2.2.3'
+
 source 'https://rubygems.org'
 
 
@@ -47,3 +49,4 @@ end
 
 gem 'dotenv-rails', group: %i(development test)
 gem 'omniauth-twitter'
+gem 'rails_12factor', group: :production
