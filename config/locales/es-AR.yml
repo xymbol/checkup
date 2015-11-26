@@ -211,7 +211,6 @@ es-AR:
       long: "%A, %d de %B de %Y a las %I:%M %p"
       short: "%d de %b a las %H:%M hrs"
     pm: pm
-
   views:
     pagination:
       first: "&laquo; Primera"
@@ -220,3 +219,10 @@ es-AR:
       next: "Próxima &rsaquo;"
       truncate: "&hellip;"
       helpers:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            base:
+              must_have_nickname_or_email: debe tener nickname o email
