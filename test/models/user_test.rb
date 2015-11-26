@@ -21,6 +21,13 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "name@example.com", user.email
   end
 
+  test "updates email on auth" do
+    auth = users(:jane).to_auth
+    auth.info.email = "jane@example.com"
+    user = User.from_omniauth auth
+    assert_equal "jane@example.com", user.email
+  end
+
   test "returns auth" do
     assert_instance_of OmniAuth::AuthHash, users(:john).to_auth
   end

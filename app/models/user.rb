@@ -6,10 +6,11 @@ class User < ActiveRecord::Base
   validate :has_nickname_or_email
 
   def self.from_omniauth(auth)
-    where(provider: auth["provider"], uid: auth["uid"]).first_or_create do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.email = auth.info.email
       user.name = auth.info.name
       user.nickname = auth.info.nickname
+      user.save!
     end
   end
 

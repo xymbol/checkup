@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_filter :authorize, only: %i(create failure)
 
   def create
-    user = User.from_omniauth env["omniauth.auth"]
+    user = User.from_omniauth auth
     reset_session
     session[:user_id] = user.id
     redirect_to root_url, notice: "Signed in"
@@ -15,5 +15,11 @@ class SessionsController < ApplicationController
 
   def failure
     redirect_to root_url, alert: "Authentication Error"
+  end
+
+  private
+
+  def auth
+    request.env["omniauth.auth"]
   end
 end
