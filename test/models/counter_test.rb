@@ -8,7 +8,7 @@ class CounterTest < ActiveSupport::TestCase
   attr_reader :instance
 
   test "computes users count" do
-    assert_equal 2, instance.users
+    assert_equal 3, instance.users
   end
 
   test "computes checks count" do

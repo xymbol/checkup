@@ -49,6 +49,7 @@ end
 
 gem 'dotenv-rails', group: %i(development test)
 gem 'kaminari'
+gem 'omniauth-facebook', '~> 3.0'
 gem 'omniauth-twitter'
 gem 'puma'
 gem 'rails_12factor', group: :production

@@ -1,9 +1,10 @@
 <nav>
   <ul>
     <% unless current_user %>
-      <li><%= link_to "Entrar con Twitter", "/auth/twitter" %></li>
+      <li><a href="/auth/facebook">Entrar con Facebook</a></li>
+      <li><a href="/auth/twitter">Entrar con Twitter</a></li>
     <% else %>
-      <li>Ingresaste como <%= link_to current_user.display_name, current_user.twitter_url %></li>
+      <li>Ingresaste como <%= data_tag current_user.display_name %></li>
       <li>Registraste <%= data_tag current_user.checks.count %> chequeos</li>
       <li><%= link_to "Clic para salir", signout_url %></li>
     <% end %>

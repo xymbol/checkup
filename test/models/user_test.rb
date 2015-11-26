@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  %i(john jane).each do |name|
-    test "fixture #{name} is valid" do
+  %i(john jane richard).each do |name|
+      test "fixture #{name} is valid" do
       assert users(name).valid?
     end
   end

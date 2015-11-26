@@ -11,3 +11,10 @@ jane:
   nickname: jane
   name: Jane Doe
   email: ~
+
+richard:
+  provider: facebook
+  uid: 789
+  nickname: ~
+  name: Richard Roe
+  email: richard@example.com
