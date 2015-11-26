@@ -7,8 +7,26 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "honors nickname case" do
-    user = User.new nickname: "EdPMB"
-    assert_equal "@EdPMB", user.display_name
+  test "is invalid without nickname or email" do
+    user = users(:john)
+    user.email = user.nickname = nil
+    user.valid?
+    refute user.errors[:base].empty?
+  end
+
+  test "sets email on auth" do
+    auth = build_auth
+    auth.info.email = "name@example.com"
+    user = User.from_omniauth auth
+    assert_equal "name@example.com", user.email
+  end
+
+  test "returns auth" do
+    assert_instance_of OmniAuth::AuthHash, users(:john).to_auth
+  end
+
+  def build_auth
+    OmniAuth::AuthHash.new \
+      provider: "provider", uid: 123, info: { name: "Name" }
   end
 end

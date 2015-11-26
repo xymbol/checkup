@@ -3,9 +3,11 @@ john:
   uid: 123
   nickname: john
   name: John Doe
+  email: john@example.com
 
 jane:
   provider: twitter
   uid: 456
   nickname: jane
   name: Jane Doe
+  email: ~
