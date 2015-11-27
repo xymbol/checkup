@@ -47,12 +47,14 @@ nav ul {
 }
 .module .check form.button_to input[type=submit] {
   width: 4em;
-  background-color: darkgreen;
+  background-color: #449d44;
   font-size: 1.6em;
   color: white;
+  border: 0;
 }
 .module .check form.button_to input[type=submit].not {
-  background-color: darkred;
+  background-color: #d9534f;
+  border: 0;
 }
 .module .counter {
   list-style: none;
@@ -247,9 +249,14 @@ margin-top: 2%;
   margin-right: 5%;
 }
 
-
 .shrink
 {
   background-color: #000000;
   height: 10%;
+}
+
+.module_left
+{
+  position: relative;
+  float: left;
 }
