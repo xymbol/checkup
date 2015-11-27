@@ -12,13 +12,13 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-              <% unless current_user %>
+            <% unless current_user %>
             <li><a href="/auth/facebook">Ingresar con Facebook</a></li>
             <li><a href="/auth/twitter">Ingresar con Twitter</a></li>
             <% else %>
-            <li>Ingresaste como <%= data_tag current_user.display_name %></li>
-            <li>Registraste <%= data_tag current_user.checks.count %> chequeos</li>
-            <li><%= link_to "Clic para salir", signout_url %></li>
+            <li>Bienvenido <%= data_tag current_user.display_name %></li>
+            <li>Tenes <%= data_tag current_user.checks.count %> chequeos</li>
+            <li><%= link_to "Salir", signout_url %></li>
           <% end %>
           </ul>
         </div><!--/.nav-collapse -->
