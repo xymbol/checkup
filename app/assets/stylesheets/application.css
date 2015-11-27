@@ -31,7 +31,8 @@ nav ul {
   padding: 0;
 }
 .module {
-  position: absolute;
+  position: relative;
+  float: left;
   top: 0;
   right: 1em;
   width: auto;
