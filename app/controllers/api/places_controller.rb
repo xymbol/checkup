@@ -8,6 +8,6 @@ class Api::PlacesController < ApplicationController
   private
 
   def pdf_urls
-    Place.ok.map(&:pdf_url)
+    Place.ok.limit(1000).map(&:pdf_url)
   end
 end
