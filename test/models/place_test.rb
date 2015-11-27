@@ -7,8 +7,8 @@ class PlaceTest < ActiveSupport::TestCase
     end
   end
 
-  test "returns ids" do
-    assert_equal 3, Place.ids.length
+  test "returns codes" do
+    assert_equal 3, Place.codes.length
   end
 
   test "finds places with ok checks" do
