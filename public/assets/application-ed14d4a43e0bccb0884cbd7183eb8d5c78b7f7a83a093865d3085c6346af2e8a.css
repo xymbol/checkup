@@ -10,9 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 
 body {
   position: relative;
@@ -31,12 +32,10 @@ nav ul {
   padding: 0;
 }
 .module {
-  position: relative;
-  float: right;
+  position: absolute;
   top: 0;
   right: 1em;
   width: auto;
-  padding-bottom: 1%;
 }
 .module .check, .module .counter {
   float: right;
@@ -47,14 +46,12 @@ nav ul {
 }
 .module .check form.button_to input[type=submit] {
   width: 4em;
-  background-color: #449d44;
+  background-color: darkgreen;
   font-size: 1.6em;
   color: white;
-  border: 0;
 }
 .module .check form.button_to input[type=submit].not {
-  background-color: #d9534f;
-  border: 0;
+  background-color: darkred;
 }
 .module .counter {
   list-style: none;
@@ -71,7 +68,6 @@ nav ul {
 }
 .place_wrapper {
   position: relative;
-  margin-top: 5%;
 }
 .place {
   width: 100%;
@@ -146,7 +142,7 @@ nav ul {
 .cover
 {
 background-size: cover;
-background: url("argentina.jpg") no-repeat center center fixed;
+background-image: url("argentina.jpg") no-repeat center center fixed;
 width: 100%;
 height: 100vh;
 background-color: #1b1f23;
@@ -204,16 +200,19 @@ margin-top: 2%;
 
 .cover-help
 {
-  background-size: cover;
-  background: url("bsas.jpg") no-repeat center center fixed;
-  width: 100%;
-  height: 475px;
-  background-color: #1b1f23;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
-  overflow: hidden;
-  color: #fff;
-  background-size: 100%;
-  opacity: 1;
+    background-size: fixed;
+    background-image: url("bsas.jpg") no-repeat center center fixed;
+    width: 100%;
+    height: 475px;
+    background-color: #000000;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    overflow: hidden;
+    color: #fff;
+    background-size: 100%;
+    background-position: 38% -55%;
+    position: relative;
+    float: left;
+    opacity: 1;
 }
 
 .cover-help > .container
@@ -231,6 +230,7 @@ margin-top: 2%;
 
 .jumbotron
 {
+  margin-top: 5%;
   padding-bottom: 0px;
 }
 
@@ -249,31 +249,13 @@ margin-top: 2%;
   margin-right: 5%;
 }
 
+.sep
+{
+margin-top: 35%;
+}
+
 .shrink
 {
   background-color: #000000;
   height: 10%;
-}
-
-.module_left
-{
-  position: relative;
-  float: left;
-}
-
-.text-total{
-  padding-left: 6%;
-  width: auto;
-  position: relative;
-  float: left;
-  margin-top: 4%;
-}
-
-.total{
-  font-size: 1.8em;
-}
-
-.usercurnew
-{
-  margin-top: 5%;
 }
