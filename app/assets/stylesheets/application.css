@@ -32,10 +32,11 @@ nav ul {
 }
 .module {
   position: relative;
-  float: left;
+  float: right;
   top: 0;
   right: 1em;
   width: auto;
+  padding-bottom: 1%;
 }
 .module .check, .module .counter {
   float: right;
@@ -68,6 +69,7 @@ nav ul {
 }
 .place_wrapper {
   position: relative;
+  margin-top: 8%;
 }
 .place {
   width: 100%;

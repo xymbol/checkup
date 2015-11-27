@@ -12,7 +12,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <% unless current_user %>
           <a class="navbar-brand" href="/"><%= image_tag 'logo.png', size: "200x50" %></a>
+          <% else %>
+          <a class="navbar-brand" href="/"><%= image_tag 'logo_log.png', size: "200x50" %></a>
+          <% end %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -20,7 +24,7 @@
             <li><a href="/auth/facebook">Ingresar con Facebook</a></li>
             <li><a href="/auth/twitter">Ingresar con Twitter</a></li>
             <% else %>
-            <li>Bienvenido <%= data_tag current_user.display_name %></li>
+            <li><%= data_tag current_user.display_name %></li>
             <li>Tenes <%= data_tag current_user.checks.count %> chequeos</li>
             <li><%= link_to "Salir", signout_url %></li>
           <% end %>
