@@ -7,7 +7,7 @@ class Place < ActiveRecord::Base
   validates_presence_of :url
   validates_uniqueness_of :url, :code
 
-  before_create :set_code
+  before_validation :set_code
 
   def self.checked
     joins(:checks).distinct
@@ -44,6 +44,6 @@ class Place < ActiveRecord::Base
   private
 
   def set_code
-    self.code = SecureRandom.hex
+    self.code ||= SecureRandom.hex
   end
 end

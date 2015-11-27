@@ -19,9 +19,10 @@ class PlaceTest < ActiveSupport::TestCase
     assert_equal [places(:two)], Place.not
   end
 
-  test "sets code on create" do
-    other = Place.create url: "http://example.com/"
-    assert_match /\h{32}/, other.code
+  test "sets code on validation" do
+    place = Place.new url: "http://example.com/"
+    place.valid?
+    assert_match /\h{32}/, place.code
   end
 
   test "returns checked places" do
