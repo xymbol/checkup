@@ -4,6 +4,8 @@ class Counter < ActiveRecord::Base
     :checks,
     :places,
     :checked_places,
+    :ok_places,
+    :not_places,
     :progress,
     :ok_checks,
     :not_checks
@@ -24,6 +26,8 @@ class Counter < ActiveRecord::Base
     self.checks = Check.count
     self.places = Place.count
     self.checked_places = Place.checked.count
+    self.ok_places = Place.ok.count
+    self.not_places = Place.not.count
   end
 
   def compute_progress

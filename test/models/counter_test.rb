@@ -23,6 +23,12 @@ class CounterTest < ActiveSupport::TestCase
     assert_equal 2, instance.checked_places
   end
 
+  %i(ok not).each do |name|
+    test "computes #{name} places count" do
+      assert_equal 1, instance.send("#{name}_places")
+    end
+  end
+
   test "computes progress" do
     assert_in_delta 0.667, instance.progress
   end

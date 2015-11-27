@@ -6,7 +6,7 @@
   <ul class="counter">
     <li><%= data_tag progress_as_percentage %></li>
     <li>Chequeadas <%= link_to number_with_delimiter(counter.checks), checked_places_url, class: "data" %> de <%= link_to number_with_delimiter(counter.places), places_path, class: "data" %> mesas</li>
-    <li>En total <%= link_to number_with_delimiter(counter.ok_checks), ok_places_url, class: "data" %> buenos y <%= link_to number_with_delimiter(counter.not_checks), not_places_url, class: "data" %> malos</li>
+    <li>En total <%= link_to number_with_delimiter(counter.ok_places), ok_places_url, class: "data" %> buenos y <%= link_to number_with_delimiter(counter.not_places), not_places_url, class: "data" %> malos</li>
   </ul>
 </div>
 <div class="place_wrapper">
