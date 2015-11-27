@@ -134,10 +134,14 @@ nav ul {
     100% { opacity:1; }
 }
 
+.navbar-brand
+{
+  margin-top: -6%;
+}
 .cover
 {
 background-size: cover;
-background: url(/assets/argentina.jpg) no-repeat center center fixed;
+background-image: url("argentina.jpg") no-repeat center center fixed;
 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./assets/argentina.jpg', sizingMethod='scale');
 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/argentina.jpg', sizingMethod='scale')";
 width: 100%;
@@ -198,7 +202,7 @@ margin-top: 2%;
 .cover-help
 {
     background-size: fixed;
-    background: url(/assets/bsas.jpg) no-repeat center center fixed;
+    background-image: url("bsas.jpg") no-repeat center center fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./assets/bsas.jpg', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/bsas.jpg', sizingMethod='scale')";
     width: 100%;
