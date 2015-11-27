@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126183705) do
+ActiveRecord::Schema.define(version: 20151127013206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20151126183705) do
 
   add_index "checks", ["place_id"], name: "index_checks_on_place_id", using: :btree
   add_index "checks", ["user_id", "place_id"], name: "index_checks_on_user_id_and_place_id", unique: true, using: :btree
-  add_index "checks", ["user_id"], name: "index_checks_on_user_id", using: :btree
   add_index "checks", ["value"], name: "index_checks_on_value", using: :btree
 
   create_table "counters", force: :cascade do |t|
