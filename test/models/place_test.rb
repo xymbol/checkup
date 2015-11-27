@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class PlaceTest < ActiveSupport::TestCase
-  %i(one two three).each do |name|
+  %i(one two three four).each do |name|
     test "#{name} is valid" do
       assert places(name).valid?
     end
@@ -23,6 +23,10 @@ class PlaceTest < ActiveSupport::TestCase
     place = Place.new url: "http://example.com/"
     place.valid?
     assert_match /\h{32}/, place.code
+  end
+
+  test "excludes places without telegram" do
+    assert Place.all.exclude?(places(:four))
   end
 
   test "returns checked places" do

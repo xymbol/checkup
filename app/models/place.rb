@@ -9,6 +9,10 @@ class Place < ActiveRecord::Base
 
   before_validation :set_code
 
+  def self.default_scope
+    where(telegram: true)
+  end
+
   def self.checked
     joins(:checks).distinct
   end

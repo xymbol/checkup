@@ -9,3 +9,8 @@ two:
 three:
   url: http://www.resultados.gob.ar/bltgetelegr/01/001/0001/010010001_0003.htm
   code: 454aef1f2161124e8d51a87efab70384
+
+four:
+  url: http://www.resultados.gob.ar/bltgetelegr/01/007/0082/010070082_3144.htm
+  code: 17a4284b4ccbc3e792c8f15b6e3709b0
+  telegram: false
