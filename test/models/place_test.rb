@@ -44,4 +44,14 @@ class PlaceTest < ActiveSupport::TestCase
   test "returns was not checked" do
     refute places(:three).checked?
   end
+
+  test "returns pdf url" do
+    assert_equal \
+      "http://www.resultados.gob.ar/bltgetelegr/01/001/0001/010010001_0001.pdf",
+      places(:one).pdf_url
+  end
+
+  test "does not return pdf url without telegram" do
+    assert_nil places(:four).pdf_url
+  end
 end

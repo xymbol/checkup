@@ -45,6 +45,10 @@ class Place < ActiveRecord::Base
     checks.any?
   end
 
+  def pdf_url
+    url.sub(/\.htm$/, ".pdf") if telegram?
+  end
+
   private
 
   def set_code
