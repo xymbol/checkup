@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
-
   get '/auth/:provider/callback' => 'sessions#create'
   get '/auth/failure' => 'sessions#failure'
   get '/signout' => 'sessions#destroy', as: :signout
@@ -19,4 +17,6 @@ Rails.application.routes.draw do
       patch 'ok'
     end
   end
+
+  root 'welcome#index'
 end
