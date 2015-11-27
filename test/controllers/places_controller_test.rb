@@ -37,4 +37,17 @@ class PlacesControllerTest < ActionController::TestCase
     get :checked
     assert_response :success
   end
+
+  %i(ok not).each do |name|
+    test "get index_#{name} when signed out" do
+      get "index_#{name}"
+      assert_response :redirect
+    end
+
+    test "get index_#{name}" do
+      authenticate
+      get "index_#{name}"
+      assert_response :success
+    end
+  end
 end

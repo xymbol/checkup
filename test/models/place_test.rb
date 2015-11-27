@@ -11,6 +11,14 @@ class PlaceTest < ActiveSupport::TestCase
     assert_equal 3, Place.ids.length
   end
 
+  test "finds places with ok checks" do
+    assert_equal [places(:one)], Place.ok
+  end
+
+  test "finds places with not ok checks" do
+    assert_equal [places(:two)], Place.not
+  end
+
   test "sets code on create" do
     other = Place.create url: "http://example.com/"
     assert_match /\h{32}/, other.code

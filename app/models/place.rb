@@ -21,6 +21,12 @@ class Place < ActiveRecord::Base
     @codes ||= pluck(:code)
   end
 
+  %i(ok not).each do |name|
+    define_singleton_method name do
+      joins(:checks).merge(Check.send(name)).distinct
+    end
+  end
+
   alias_attribute :to_param, :code
 
   def title

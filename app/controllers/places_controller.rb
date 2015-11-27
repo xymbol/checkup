@@ -21,6 +21,13 @@ class PlacesController < ApplicationController
     render "index"
   end
 
+  %i(ok not).each do |name|
+    define_method "index_#{name}" do
+      @places = Place.send(name).page params[:page]
+      render "index"
+    end
+  end
+
   private
 
   def find_place

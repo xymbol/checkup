@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :places, only: %i(index) do
     collection do
       get 'checked'
+      get 'not', action: :index_not
+      get 'ok', action: :index_ok
     end
   end
 
