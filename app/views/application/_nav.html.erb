@@ -24,8 +24,7 @@
             <li><a href="/auth/facebook">Ingresar con Facebook</a></li>
             <li><a href="/auth/twitter">Ingresar con Twitter</a></li>
             <% else %>
-            <li><%= data_tag current_user.display_name %></li>
-            <li>Tenés <%= data_tag current_user.checks.count %> chequeos</li>
+            <li class="usercurnew"><%= data_tag current_user.display_name %> tenés <%= data_tag current_user.checks.count %> chequeos</li>
             <li><%= link_to "Salir", signout_url %></li>
           <% end %>
           </ul>
