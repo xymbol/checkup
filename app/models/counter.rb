@@ -31,7 +31,13 @@ class Counter < ActiveRecord::Base
   end
 
   def compute_progress
-    self.progress = checked_places.to_f / places
+    self.progress = if can_compute_progress?
+      checked_places.to_f / places
+    end
+  end
+
+  def can_compute_progress?
+    places > 0
   end
 
   def compute_checks
