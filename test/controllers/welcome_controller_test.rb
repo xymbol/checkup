@@ -17,4 +17,11 @@ class WelcomeControllerTest < ActionController::TestCase
     get :index
     assert_response :redirect
   end
+
+  test "get index renders counters" do
+    get :index
+    assert_select "ul.counter" do
+      assert_select "li.progress_as_percentage"
+    end
+  end
 end

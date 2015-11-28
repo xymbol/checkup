@@ -13,6 +13,12 @@
   <li>La aplicación te presentará otro telegrama y así...</li>
   <li>Si te equivocaste, podés volver atrás</li>
 </ol>
+<h2>Resultados parciales</h2>
+<ul class="counter">
+  <li class="progress_as_percentage">Progreso: <%= data_tag progress_as_percentage %></li>
+  <li>Chequeados: <%= data_tag number_with_delimiter(counter.checked_places) %> de <%= data_tag number_with_delimiter(counter.places) %></li>
+  <li><%= data_tag number_with_delimiter(counter.ok_places) %> buenos y <%= data_tag number_with_delimiter(counter.not_places) %> malos</li>
+</ul>
 <h2>Aclaración</h2>
 <p>
   Esta aplicación persigue una curiosidad estadística y no apoya a ningún

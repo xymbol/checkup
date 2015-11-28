@@ -56,13 +56,13 @@ nav ul {
   margin: 0;
   padding: 0 2em 0 0;
 }
-.module .counter li:nth-child(1) .data {
-  background-color: lightyellow;
-}
 .data {
   padding: 0 4px;
   background-color: #fff;
   font-weight: bold;
+}
+.progress_as_percentage .data {
+  background-color: lightyellow;
 }
 .place_wrapper {
   position: relative;

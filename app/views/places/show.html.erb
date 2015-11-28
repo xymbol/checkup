@@ -4,7 +4,7 @@
     <%= button_to "✗", [:not, @place], method: :patch, class: "not" %>
   </div>
   <ul class="counter">
-    <li>Progreso: <%= data_tag progress_as_percentage %></li>
+    <li class="progress_as_percentage">Progreso: <%= data_tag progress_as_percentage %></li>
     <li>Chequeados: <%= link_to number_with_delimiter(counter.checked_places), checked_places_url, class: "data" %> de <%= link_to number_with_delimiter(counter.places), places_path, class: "data" %></li>
     <li><%= link_to number_with_delimiter(counter.ok_places), ok_places_url, class: "data" %> buenos y <%= link_to number_with_delimiter(counter.not_places), not_places_url, class: "data" %> malos</li>
   </ul>
