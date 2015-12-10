@@ -1,53 +1,101 @@
 require 'test_helper'
 
 class PlacesControllerTest < ActionController::TestCase
-  test "should get show" do
+  test "show redirects when signed out" do
     get :show, id: places(:one)
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
-  test "should get ok" do
-    patch :ok, id: places(:one)
-    assert_response :redirect
+  test "show" do
+    authenticate
+    get :show, id: places(:one)
+    assert_response :ok
   end
 
-  test "should get not" do
-    patch :not, id: places(:one)
-    assert_response :redirect
+  test "show assigns place" do
+    authenticate
+    get :show, id: places(:one)
+    assert_equal places(:one), assigns(:place)
   end
 
-  test "get index when signed out" do
+  test "show renders form" do
+    authenticate
+    get :show, id: places(:one)
+    assert_select 'form button[name=value][value=ok]'
+    assert_select 'form button[name=value][value=not]'
+  end
+
+  test "index redirects when signed out" do
     get :index
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
-  test "get index" do
+  test "index" do
     authenticate
     get :index
-    assert_response :success
+    assert_response :ok
   end
 
-  test "get checked when signed out" do
+  test "index assigns places" do
+    authenticate
+    get :index
+    assert assigns(:places).include?(places(:one))
+  end
+
+  test "checked redirects when signed out" do
     get :checked
-    assert_response :redirect
+    assert_redirected_to root_url
   end
 
-  test "get checked" do
+  test "checked" do
     authenticate
     get :checked
-    assert_response :success
+    assert_template "index"
+    assert_response :ok
   end
 
-  %i(ok not).each do |name|
-    test "get index_#{name} when signed out" do
-      get "index_#{name}"
-      assert_response :redirect
-    end
+  test "checked assigns places" do
+    authenticate
+    get :checked
+    assert assigns(:places).include?(places(:one))
+    refute assigns(:places).include?(places(:three))
+  end
 
-    test "get index_#{name}" do
-      authenticate
-      get "index_#{name}"
-      assert_response :success
-    end
+  test "ok when signed out" do
+    get :ok
+    assert_redirected_to root_url
+  end
+
+  test "ok" do
+    authenticate
+    get :ok
+    assert_template "index"
+    assert_response :ok
+  end
+
+  test "ok assigns places" do
+    authenticate
+    get :ok
+    assert assigns(:places).include?(places(:one))
+    refute assigns(:places).include?(places(:two))
+  end
+
+  test "not when signed out" do
+    get :not
+    assert_redirected_to root_url
+  end
+
+  test "not" do
+    authenticate
+    get :not
+    assert_template "index"
+    assert_response :ok
+  end
+
+  test "not assigns places" do
+    authenticate
+    get :not
+    refute assigns(:places).include?(places(:one))
+    assert assigns(:places).include?(places(:two))
   end
 end

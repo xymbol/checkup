@@ -1,16 +1,7 @@
 class PlacesController < ApplicationController
-  before_action :find_place, only: %i(show ok not)
-
   def show
+    @place = Place.find_by! code: params[:id]
   end
-
-  def ok
-    @check = Check.where(place: @place, user: current_user).first_or_initialize
-    @check.value = action_name
-    @check.save!
-    redirect_to root_url
-  end
-  alias_method :not, :ok
 
   def index
     @places = Place.page params[:page]
@@ -21,16 +12,9 @@ class PlacesController < ApplicationController
     render "index"
   end
 
-  %i(ok not).each do |name|
-    define_method "index_#{name}" do
-      @places = Place.send(name).page params[:page]
-      render "index"
-    end
+  def ok
+    @places = Place.send(action_name).page params[:page]
+    render "index"
   end
-
-  private
-
-  def find_place
-    @place = Place.find_by! code: params[:id]
-  end
+  alias_method :not, :ok
 end

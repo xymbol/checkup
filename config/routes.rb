@@ -6,16 +6,13 @@ Rails.application.routes.draw do
   resources :places, only: %i(index) do
     collection do
       get 'checked'
-      get 'not', action: :index_not
-      get 'ok', action: :index_ok
+      get 'not'
+      get 'ok'
     end
   end
 
   resources :places, path: '', only: %i(show) do
-    member do
-      patch 'not'
-      patch 'ok'
-    end
+    resource :check, only: %i(update)
   end
 
   root 'welcome#index'

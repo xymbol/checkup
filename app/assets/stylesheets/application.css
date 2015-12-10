@@ -42,13 +42,13 @@ nav ul {
   display: inline;
   text-align: right;
 }
-.module .check form.button_to input[type=submit] {
+.module .check form [name=value] {
   width: 4em;
   background-color: darkgreen;
   font-size: 1.6em;
   color: white;
 }
-.module .check form.button_to input[type=submit].not {
+.module .check form [name=value][value=not] {
   background-color: darkred;
 }
 .module .counter {
