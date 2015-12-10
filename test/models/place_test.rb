@@ -22,7 +22,7 @@ class PlaceTest < ActiveSupport::TestCase
   test "sets code on validation" do
     place = Place.new url: "http://example.com/"
     place.valid?
-    assert_match /\h{32}/, place.code
+    assert_match(/\h{32}/, place.code)
   end
 
   test "excludes places without telegram" do

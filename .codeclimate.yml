@@ -1,0 +1,24 @@
+---
+engines:
+  bundler-audit:
+    enabled: true
+  csslint:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  rubocop:
+    enabled: true
+ratings:
+  paths:
+  - Gemfile.lock
+  - "**.css"
+  - "**.js"
+  - "**.jsx"
+  - "**.rb"
+exclude_paths:
+- config/**/*
+- db/**/*
+- test/**/*
+- vendor/**/*
