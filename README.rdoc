@@ -1,3 +1,6 @@
+{<img src="https://codeclimate.com/github/xymbol/checkup/badges/gpa.svg" />}[https://codeclimate.com/github/xymbol/checkup]
+{<img src="https://codeclimate.com/github/xymbol/checkup/badges/coverage.svg" />}[https://codeclimate.com/github/xymbol/checkup/coverage]
+
 == README
 
 This README would normally document whatever steps are necessary to get the
