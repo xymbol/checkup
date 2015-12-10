@@ -53,3 +53,5 @@ gem 'omniauth-facebook', '~> 3.0'
 gem 'omniauth-twitter'
 gem 'puma'
 gem 'rails_12factor', group: :production
+
+gem 'codeclimate-test-reporter', group: :test, require: nil
