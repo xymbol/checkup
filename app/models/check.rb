@@ -11,4 +11,8 @@ class Check < ActiveRecord::Base
   %w(ok not).each do |value|
     scope value, -> { where value: value }
   end
+
+  def self.search(user, place)
+    where(user: user, place: place).first_or_initialize
+  end
 end
