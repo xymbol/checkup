@@ -1,27 +1,31 @@
 require 'test_helper'
 
 class WelcomeControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "index" do
     get :index
-    assert_response :success
+    assert_response :ok
   end
 
-  test "redirects with https" do
+  test "index redirects with https" do
     request.env["HTTPS"] = "on"
     get :index
     assert_response :redirect
   end
 
-  test "redirects when signed in" do
+  test "index renders counters" do
+    get :index
+    assert_select "ul.counter li", 3
+  end
+
+  test "index redirects when signed in" do
     authenticate
     get :index
     assert_response :redirect
   end
 
-  test "get index renders counters" do
+  test "index when user not found" do
+    session[:user_id] = "xxx"
     get :index
-    assert_select "ul.counter" do
-      assert_select "li.progress_as_percentage"
-    end
+    refute assigns(:current_user)
   end
 end
