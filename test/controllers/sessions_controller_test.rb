@@ -16,7 +16,7 @@ class SessionsControllerTest < ActionController::TestCase
   test "destroy" do
     authenticate
     get :destroy
-    assert_nil session[:user_id], "session not empty"
+    assert_nil session[:user_id], "session set"
     assert_redirected_to root_url
   end
 

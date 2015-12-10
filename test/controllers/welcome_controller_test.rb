@@ -9,7 +9,7 @@ class WelcomeControllerTest < ActionController::TestCase
   test "index redirects with https" do
     request.env["HTTPS"] = "on"
     get :index
-    assert_response :redirect
+    assert_redirected_to protocol: "http"
   end
 
   test "index renders counters" do
@@ -26,6 +26,6 @@ class WelcomeControllerTest < ActionController::TestCase
   test "index when user not found" do
     session[:user_id] = "xxx"
     get :index
-    refute assigns(:current_user)
+    assert_nil assigns(:current_user)
   end
 end
