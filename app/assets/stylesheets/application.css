@@ -38,10 +38,6 @@ nav ul {
 .module .check, .module .counter {
   float: right;
 }
-.module .check form.button_to {
-  display: inline;
-  text-align: right;
-}
 .module .check form [name=value] {
   width: 4em;
   background-color: darkgreen;
