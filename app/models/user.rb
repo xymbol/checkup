@@ -18,10 +18,6 @@ class User < ActiveRecord::Base
     name
   end
 
-  def twitter_url
-    'https://twitter.com/%s' % nickname
-  end
-
   def to_auth
     auth = OmniAuth::AuthHash.new attributes.slice("provider", "uid")
     auth.info = attributes.slice("name", "nickname", "email")
